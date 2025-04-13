@@ -9,7 +9,7 @@ import { HTTPSTATUS } from "./config/http.config";
 import { asyncHandler } from "./middlewares/asyncHandler.middleware";
 import { BadRequestException } from "./utils/appError";
 import { ErrorCodeEnum } from "./enums/error-code.enum";
-
+import dotenv from "dotenv";
 import "./config/passport.config";
 import passport from "passport";
 import authRoutes from "./routes/auth.route";
@@ -26,6 +26,7 @@ const BASE_PATH = config.BASE_PATH;
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+dotenv.config();
 
 app.use(
   session({
